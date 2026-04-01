@@ -2,15 +2,9 @@
 
 A modern, responsive landing page for Evergreen.ai - an AI financial advisor for tech professionals.
 
-![Evergreen.ai Landing Page](https://evergreen-ppqn1k3wn-joseiscoding-9723s-projects.vercel.app)
-
 ## Overview
 
 Evergreen.ai is an AI-powered financial advisory platform that understands RSUs, ISOs, AMT, and IPO scenarios. This landing page showcases the product features with a clean, professional design optimized for all devices.
-
-## Live Demo
-
-**Production URL:** https://evergreen-ppqn1k3wn-joseiscoding-9723s-projects.vercel.app
 
 ## Features
 
