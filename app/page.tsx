@@ -1,7 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, Suspense } from "react";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
 
 // Header Component
 function Header() {
@@ -39,6 +40,46 @@ function Header() {
   );
 }
 
+// Hero heading copy keyed by URL ?type= param (case-insensitive)
+const HERO_HEADINGS: Record<string, { main: string; accent: string }> = {
+  ISO: {
+    main: "Ask Your Hardest Incentive Stock Options Questions.",
+    accent: "We're Ready.",
+  },
+  NSO: {
+    main: "Ask Your Hardest Non-Qualified Stock Options Questions.",
+    accent: "We're Ready.",
+  },
+  RSU: {
+    main: "Ask Your Hardest Restricted Stock Units Questions.",
+    accent: "We're Ready.",
+  },
+  ESPP: {
+    main: "Ask Your Hardest ESPP & Equity Questions.",
+    accent: "We're Ready.",
+  },
+};
+
+const DEFAULT_HEADING = {
+  main: "Ask Your Hardest Equity Question.",
+  accent: "We're Ready.",
+};
+
+// Reads ?type= and returns the matching heading copy
+function HeroHeading() {
+  const searchParams = useSearchParams();
+  const typeParam = (searchParams.get("type") ?? "").toUpperCase();
+  const { main, accent } = HERO_HEADINGS[typeParam] ?? DEFAULT_HEADING;
+
+  return (
+    <h1 className="font-cormorant text-[48px] leading-[120%] lg:text-[88px] font-light text-white tracking-[-3.36052px] max-w-[815px] mx-auto">
+      {main}
+      <br />
+      <span className="text-[#295CCC]">{accent}</span>
+    </h1>
+  );
+}
+
 // Hero Section Component
 function HeroSection() {
   const [activeQuestion, setActiveQuestion] = useState(0);
@@ -57,11 +98,17 @@ function HeroSection() {
           <p className="text-[10px] sm:text-xs font-medium tracking-[1.56px] uppercase text-[#9A948C] mb-4">
             Finally, an AI advisor that understands RSUs, ISOs, AMT, and IPO scenarios.
           </p>
-          <h1 className="font-cormorant text-[48px] leading-[120%] lg:text-[88px] font-light text-white tracking-[-3.36052px] max-w-[815px] mx-auto">
-            Ask Your Hardest <br /> Equity Question. 
-            <br />
-            <span className="text-[#295CCC]">We&apos;re Ready.</span>
-          </h1>
+          <Suspense
+            fallback={
+              <h1 className="font-cormorant text-[48px] leading-[120%] lg:text-[88px] font-light text-white tracking-[-3.36052px] max-w-[815px] mx-auto">
+                {DEFAULT_HEADING.main}
+                <br />
+                <span className="text-[#295CCC]">{DEFAULT_HEADING.accent}</span>
+              </h1>
+            }
+          >
+            <HeroHeading />
+          </Suspense>
         </div>
 
         {/* Chat Interface - Desktop */}
