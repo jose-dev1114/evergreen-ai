@@ -396,7 +396,6 @@ function HeroSection() {
                       fontSize: '8px',
                       lineHeight: '7px',
                       color: '#727874',
-                      width: '291.08px'
                     }}
                   >
                     By messaging evergreen.ai, you agree to our Terms of Use and Privacy Policy.
@@ -611,7 +610,7 @@ function FeaturesSection() {
               Meet Expert Advice for Tech Professionals
             </h2>
             <button className="btn-primary inline-flex items-center gap-2 px-6 py-4 text-white font-medium">
-              <span>Ask now</span>
+              <span>Ask your questions now</span>
               <span className="text-lg">→</span>
             </button>
           </div>
@@ -815,7 +814,7 @@ function CTASection() {
                   color: '#FFFFFF'
                 }}
               >
-                Ask now
+                Get started now
               </span>
               <span 
                 style={{
@@ -875,7 +874,7 @@ function CTASection() {
           
           <div className="flex flex-col items-center gap-4">
             <button className="btn-primary inline-flex items-center gap-2 px-6 py-4 text-white font-medium">
-              <span>Ask now</span>
+              <span>Get started now</span>
               <span className="text-lg">→</span>
             </button>
           </div>
