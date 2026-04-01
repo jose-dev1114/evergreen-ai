@@ -1,0 +1,133 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --color-dark: #0E0E0E;
+  --color-dark-secondary: #111111;
+  --color-gold: #C9A84C;
+  --color-blue: #295CCC;
+  --color-blue-light: #7094FB;
+  --color-text-muted: #9A948C;
+  --color-text-light: rgba(255, 255, 255, 0.8);
+  --color-text-light-muted: rgba(255, 255, 255, 0.55);
+  --color-border: #EDE9E0;
+  --color-cream: #FDFCFA;
+  --color-gray-bg: #F7F7F7;
+  --color-gray-warm: #F7F5F0;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-heebo);
+  --font-serif: var(--font-cormorant-garamond);
+  --font-mono: var(--font-lekton);
+  --font-heebo: var(--font-heebo);
+  --font-cormorant: var(--font-cormorant-garamond);
+  --font-lekton: var(--font-lekton);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-heebo), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Gradient backgrounds */
+.bg-hero-gradient {
+  background: radial-gradient(100% 100% at 50% 100%, rgba(112, 148, 251, 0.4) 0%, rgba(14, 14, 14, 0.4) 80%),
+              linear-gradient(0deg, #0E0E0E, #0E0E0E),
+              #000000;
+}
+
+.bg-cta-gradient {
+  background: radial-gradient(100% 100% at 50% 100%, rgba(112, 148, 251, 0.3) 0%, rgba(14, 14, 14, 0.3) 80%),
+              #000000;
+}
+
+/* Font families */
+.font-cormorant {
+  font-family: var(--font-cormorant-garamond), Georgia, serif;
+}
+
+.font-heebo {
+  font-family: var(--font-heebo), Arial, sans-serif;
+}
+
+.font-lekton {
+  font-family: var(--font-lekton), monospace;
+}
+
+/* Custom button styles */
+.btn-primary {
+  background: #295CCC;
+  box-shadow: 0px 0px 40.4927px rgba(112, 148, 251, 0.35), 0px 2.89234px 10.1232px rgba(0, 0, 0, 0.3);
+  border-radius: 7230.12px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 0px 50px rgba(112, 148, 251, 0.5), 0px 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+/* Phone mockup styles */
+.phone-mockup {
+  background: #0E0E0E;
+  box-shadow: 0px 0px 0px 1.6445px #2C2C2E, 
+              0px 0px 0px 3.28901px #1C1C1E, 
+              0px 0px 0px 4.11126px #3A3A3C, 
+              0px 32.8901px 65.7802px rgba(0, 0, 0, 0.6), 
+              0px 0px 82.2252px rgba(112, 148, 251, 0.1);
+  border-radius: 44.4016px;
+}
+
+/* Accordion animation */
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.accordion-content.open {
+  max-height: 500px;
+}
+
+/* Focus styles */
+input:focus, textarea:focus {
+  outline: none;
+}
+
+/* Selection color */
+::selection {
+  background: rgba(112, 148, 251, 0.3);
+  color: inherit;
+}
